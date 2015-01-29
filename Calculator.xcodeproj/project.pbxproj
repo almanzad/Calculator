@@ -81,10 +81,9 @@
 		DDFBE4561A799FE1005DF52F /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				DDFBE47D1A79A100005DF52F /* Controller */,
 				DDFBE45B1A799FE1005DF52F /* AppDelegate.h */,
 				DDFBE45C1A799FE1005DF52F /* AppDelegate.m */,
-				DDFBE45E1A799FE1005DF52F /* ViewController.h */,
-				DDFBE45F1A799FE1005DF52F /* ViewController.m */,
 				DDFBE4611A799FE1005DF52F /* Main.storyboard */,
 				DDFBE4641A799FE1005DF52F /* Images.xcassets */,
 				DDFBE4661A799FE1005DF52F /* LaunchScreen.xib */,
@@ -117,6 +116,15 @@
 				DDFBE4721A799FE1005DF52F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DDFBE47D1A79A100005DF52F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DDFBE45E1A799FE1005DF52F /* ViewController.h */,
+				DDFBE45F1A799FE1005DF52F /* ViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
