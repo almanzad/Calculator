@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface CalculatorViewController()
+@interface ViewController()
 @property (nonatomic) BOOL UserIsInTheMiddleOfEnteringANumber;
 @end
 
@@ -19,7 +19,12 @@
 - (IBAction)digitPressed:(UIButton *)sender
 {
     NSString *digit = [sender currentTitle];
+    if (self.UserIsInTheMiddleOfEnteringANumber)    {
     self.Display.text = [self.Display.text stringByAppendingString:digit];
+    } else {
+        self.Display.text = digit;
+        self.UserIsInTheMiddleOfEnteringANumber = YES;
+    }
 }
 
 @end
