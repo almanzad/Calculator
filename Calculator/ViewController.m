@@ -8,6 +8,10 @@
 
 #import "ViewController.h"
 
+@interface CalculatorViewController()
+@property (nonatomic) BOOL UserIsInTheMiddleOfEnteringANumber;
+@end
+
 @implementation ViewController
 
 @synthesize Display;
