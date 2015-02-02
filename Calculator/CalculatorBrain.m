@@ -14,20 +14,15 @@
 
 @implementation CalculatorBrain
 
-@synthesize operandStack;
+@synthesize operandStack = _operandStack;
 
 -(NSMutableArray *)operandStack
 {
-    if (!operandStack)
+    if (!_operandStack)
     {
-        operandStack = [[NSMutableArray alloc]init];
+        _operandStack = [[NSMutableArray alloc]init];
     }
-    return operandStack;
-}
-
--(void)setOperandStack:(NSMutableArray *)anArray
-{
-    operandStack = anArray;
+    return _operandStack;
 }
 
 -(void)pushOperand:(double)operand
@@ -36,9 +31,31 @@
     [self.operandStack addObject:operandObject];
 }
 
+-(double)popOperand
+{
+    NSNumber *operandObject = [self.operandStack lastObject];
+    if (operandObject) [self.operandStack removeLastObject];
+    return [operandObject doubleValue];
+}
+
 -(double)performOperation:(NSString *)operation
 {
     double result = 0;
+    
+    if([operation isEqualToString:@"+"])
+    {
+        result = [self popOperand] + [self popOperand];
+    } else if ([@"*" isEqualToString:operation])    {
+        result = [self popOperand] * [self popOperand];
+    } else if ([operation isEqualToString:@"-"])    {
+        double subtrahend = [self popOperand];
+        result = [self popOperand] - subtrahend;
+    } else if ([operation isEqualToString:@"/"])    {
+        double divisor = [self popOperand];
+        if (divisor) result = [self popOperand] / divisor;
+    }
+    
+    [self pushOperand:result];
     
     return result;
 }
